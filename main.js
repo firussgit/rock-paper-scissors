@@ -13,7 +13,7 @@ function playRound(playerMove, aiMove) {
         console.log("AI win!");
         aiScore++;
     }
-
+    
     console.log(`Player: ${playerScore} - AI: ${aiScore}`);
 }
 
@@ -32,4 +32,16 @@ function game() {
     }
 }
 
+function result() {
+    if (playerScore > aiScore) {
+        console.log("Player wins the round!");
+    } else if (aiScore > playerScore) {
+        console.log("AI wins the round!");
+    } else {
+        console.log("This round is a Draw!");
+    }
+}
+
 game();
+
+result();
