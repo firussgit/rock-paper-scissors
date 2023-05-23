@@ -1,47 +1,68 @@
-let playerScore = 0;
-let aiScore = 0;
+// AI choices list
+const choices = ["rock", "paper", "scissors"]
+
+// Score
+let playerScore = 0
+let aiScore = 0
+
+// Select buttons and attach event listeners to them
+const rock = document.querySelector("#rock")
+const paper = document.querySelector("#paper")
+const scissors = document.querySelector("#scissors")
+
+rock.addEventListener("click", () => {
+    playerChoice("rock")
+})
+paper.addEventListener("click", () => {
+    playerChoice("paper")
+})
+scissors.addEventListener("click", () => {
+    playerChoice("scissors")
+})
+
+// Select scores and results
+const pScore = document.querySelector("#pScore")
+const aScore = document.querySelector("#aScore")
+
+const pMove = document.querySelector("#pMove")
+const aMove = document.querySelector("#aMove")
+
+const round = document.querySelector("#round")
+
+// Function that sends the value of the button clicked to the game function
+function playerChoice(choice) {
+    game(choice)
+}
+
+function game(choice) {
+    // Generating a random number each time the function is called
+    const random = Math.floor(Math.random() * choices.length)
+
+    // Setting the player's choice and updating the DOM
+    const playerMove = choice
+    pMove.textContent = playerMove
+
+    // Setting the AI's choice and updating the DOM
+    const aiMove = choices[random]
+    aMove.textContent = aiMove
+
+    // Send both choices for comparison
+    playRound(playerMove, aiMove)
+}
 
 function playRound(playerMove, aiMove) {
-    if (playerMove != "rock" && playerMove != "paper" && playerMove != "scissors") {
-        console.log("You didn't pick a valid weapon! You lose..");
-    } else if (aiMove === playerMove) {
-        console.log("Draw.");
+    // Check for a winner and increment scores
+    if (aiMove === playerMove) {
+        round.textContent = "Draw."
     } else if ((playerMove === "paper" && aiMove === "rock") || (playerMove === "rock" && aiMove === "scissors") || (playerMove === "scissors" && aiMove === "paper")) {
-        console.log("Player win!");
-        playerScore++;
+        round.textContent = "Player win!"
+        playerScore++
     } else {
-        console.log("AI win!");
-        aiScore++;
+        round.textContent = "AI win!"
+        aiScore++
     }
-    
-    console.log(`Player: ${playerScore} - AI: ${aiScore}`);
+
+    // Update score
+    pScore.textContent = playerScore
+    aScore.textContent = aiScore
 }
-
-function game() {
-    for (let i = 0; i < 5; i++) {
-        const choices = ["rock", "paper", "scissors"];
-        const random = Math.floor(Math.random() * choices.length);
-
-        const playerMove = prompt("Choose your weapon: ").toLowerCase();
-        console.log(`Player: ${playerMove}`);
-
-        const aiMove = choices[random];
-        console.log(`AI: ${aiMove}`);
-
-        playRound(playerMove, aiMove);
-    }
-}
-
-function result() {
-    if (playerScore > aiScore) {
-        console.log("Player wins the round!");
-    } else if (aiScore > playerScore) {
-        console.log("AI wins the round!");
-    } else {
-        console.log("This round is a Draw!");
-    }
-}
-
-game();
-
-result();
