@@ -62,3 +62,17 @@ body {
     border-radius: 100%;
     box-shadow: 0 0 10px black;
 }
+
+@media (max-width: 600px) {
+    .cards {
+        width: 90vw;
+    }
+
+    .card {
+        width: calc(90vw / 2.25);
+    }
+
+    .choices {
+        width: 90vw;
+    }
+}

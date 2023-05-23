@@ -56,10 +56,10 @@ function playRound(playerMove, aiMove) {
     if (aiMove === playerMove) {
         round.textContent = "Draw 🙂"
     } else if ((playerMove === "🧾" && aiMove === "🧱") || (playerMove === "🧱" && aiMove === "✂") || (playerMove === "✂" && aiMove === "🧾")) {
-        round.textContent = "Player win 🎉"
+        round.textContent = "You win 🎉"
         playerScore++
     } else {
-        round.textContent = "Computer win 😭"
+        round.textContent = "Computer wins 😭"
         aiScore++
     }
 
