@@ -1,5 +1,5 @@
 // AI choices list
-const choices = ["rock", "paper", "scissors"]
+const choices = ["🧱", "🧾", "✂"]
 
 // Score
 let playerScore = 0
@@ -11,18 +11,19 @@ const paper = document.querySelector("#paper")
 const scissors = document.querySelector("#scissors")
 
 rock.addEventListener("click", () => {
-    playerChoice("rock")
+    playerChoice("🧱")
 })
 paper.addEventListener("click", () => {
-    playerChoice("paper")
+    playerChoice("🧾")
 })
 scissors.addEventListener("click", () => {
-    playerChoice("scissors")
+    playerChoice("✂")
 })
 
 // Select scores and results
 const pScore = document.querySelector("#pScore")
 const aScore = document.querySelector("#aScore")
+const tScore = document.querySelector("#tScore")
 
 const pMove = document.querySelector("#pMove")
 const aMove = document.querySelector("#aMove")
@@ -54,7 +55,7 @@ function playRound(playerMove, aiMove) {
     // Check for a winner and increment scores
     if (aiMove === playerMove) {
         round.textContent = "Draw."
-    } else if ((playerMove === "paper" && aiMove === "rock") || (playerMove === "rock" && aiMove === "scissors") || (playerMove === "scissors" && aiMove === "paper")) {
+    } else if ((playerMove === "🧾" && aiMove === "🧱") || (playerMove === "🧱" && aiMove === "✂") || (playerMove === "✂" && aiMove === "🧾")) {
         round.textContent = "Player win!"
         playerScore++
     } else {
