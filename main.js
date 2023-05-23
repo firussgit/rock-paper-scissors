@@ -54,12 +54,12 @@ function game(choice) {
 function playRound(playerMove, aiMove) {
     // Check for a winner and increment scores
     if (aiMove === playerMove) {
-        round.textContent = "Draw."
+        round.textContent = "Draw 🙂"
     } else if ((playerMove === "🧾" && aiMove === "🧱") || (playerMove === "🧱" && aiMove === "✂") || (playerMove === "✂" && aiMove === "🧾")) {
-        round.textContent = "Player win!"
+        round.textContent = "Player win 🎉"
         playerScore++
     } else {
-        round.textContent = "AI win!"
+        round.textContent = "Computer win 😭"
         aiScore++
     }
 
